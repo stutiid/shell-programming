@@ -16,12 +16,23 @@ for ((i=0; i<10; i++))
 do
 	if [ $min -gt ${A[i]} ]
 	then
+		min2=$min
 		min=$((A[i]))
+	elif [[ ${A[i]} -lt $min2 && $min -ne ${A[i]} ]]
+	then
+		min2=$((A[i]))
 	fi
 	if [ $max -lt ${A[i]} ]
 	then
+		max2=$max
 		max=$((A[i]))
+	 elif [[ ${A[i]} -gt $max2 && $max -ne ${A[i]} ]]
+   then
+      max2=$((A[i]))
 	fi
 done
-echo max:$max
-echo min:$min
+echo maximum:$max
+echo second maximum:$max2
+echo minimum:$min
+echo second minimum:$min2
+
